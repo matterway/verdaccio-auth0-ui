@@ -11,8 +11,8 @@ import { Verdaccio } from "../verdaccio"
  */
 export class PatchHtml implements IPluginMiddleware<any> {
 
-  private readonly scriptTag = `<script src="${staticPath}/verdaccio-${this.verdaccio.majorVersion}.js"></script>`
-  private readonly styleTag = `<style>${readFileSync(`${publicRoot}/verdaccio-${this.verdaccio.majorVersion}.css`)}</style>`
+  private readonly scriptTag = `<script src="${staticPath}/verdaccio.js"></script>`
+  private readonly styleTag = `<style>${readFileSync(`${publicRoot}/verdaccio.css`)}</style>`
   private readonly headWithStyle = [this.styleTag, "</head>"].join("")
   private readonly bodyWithScript = [this.scriptTag, "</body>"].join("")
 
@@ -41,7 +41,7 @@ export class PatchHtml implements IPluginMiddleware<any> {
 
   private insertTags = (html: string | Buffer): string => {
     html = String(html)
-    if (!html.includes("VERDACCIO_API_URL")) {
+    if (!html.includes("__VERDACCIO_BASENAME_UI_OPTIONS")) {
       return html
     }
     return html

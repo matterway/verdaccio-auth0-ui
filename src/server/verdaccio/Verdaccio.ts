@@ -3,13 +3,6 @@ import { Config } from "@verdaccio/types"
 import { Auth, User } from "../verdaccio"
 import { getSecurity } from "./verdaccio-4-auth-utils"
 
-/**
- * user_agent: e.g. "verdaccio/4.3.4" --> 4
- */
-function getMajorVersion(config: Config) {
-  return +config.user_agent[10]
-}
-
 function getBaseUrl(config: Config) {
   const prefix = config.url_prefix
   if (prefix) {
@@ -22,8 +15,6 @@ function getBaseUrl(config: Config) {
  * Abstract Verdaccio version differences and usage of all Verdaccio objects.
  */
 export class Verdaccio {
-
-  readonly majorVersion = getMajorVersion(this.config)
   readonly baseUrl = getBaseUrl(this.config)
 
   private auth!: Auth
@@ -41,18 +32,6 @@ export class Verdaccio {
   }
 
   async issueUiToken(user: User) {
-    return this.majorVersion === 3
-      ? this.issueJWTVerdaccio3(user)
-      : this.issueJWTVerdaccio4(user)
-  }
-
-  // https://github.com/verdaccio/verdaccio/blob/3.x/src/api/web/endpoint/user.js#L15
-  private issueJWTVerdaccio3(user: User) {
-    return this.auth.issueUIjwt(user, "24h")
-  }
-
-  // https://github.com/verdaccio/verdaccio/blob/master/src/api/web/endpoint/user.ts#L31
-  private async issueJWTVerdaccio4(user: User) {
     const jWTSignOptions = getSecurity(this.config).web.sign
     return this.auth.jwtEncrypt(user, jWTSignOptions)
   }

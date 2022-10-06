@@ -16,9 +16,11 @@ This is a Verdaccio plugin that offers OpenID Connect integration for both the b
 
 ### Compatibility
 
-- Verdaccio 3 and 4
-- Node >=10
-- Chrome, Firefox, Firefox ESR, Edge, Safari, IE 11
+- Verdaccio 5
+- Node 14, 16
+- Chrome, Firefox, Firefox ESR, Edge, Safari
+
+If you would like to use this with Verdaccio 3-4, Node.js 10-13, or IE you can use version 2 of the plugin.
 
 ## Setup
 
@@ -139,17 +141,12 @@ $ npx verdaccio-auth0-ui --registry http://localhost:4873
 
 #### Option B) Copy commands from the UI
 
-- Verdaccio 4:
+- Verdaccio 5:
 
 Open the "Register Info" dialog and klick "Copy to clipboard":
 
 ![](screenshots/register-info.png)
 
-- Verdaccio 3:
-
-Select the text in the header and copy it. In case the text is too long, you can double-click it. The invisible part will still be selected and copied.
-
-![](screenshots/header.png)
 
 - Run the copied commands on your terminal:
 

@@ -43,17 +43,17 @@ async function createBundle(options) {
 }
 
 async function build() {
-  const clientBundles = [3, 4].map(version => () =>
+  const clientBundle = () =>
     createBundle({
       target: "client",
-      input: `src/client/verdaccio-${version}.ts`,
+      input: `src/client/verdaccio.ts`,
       output: {
-        file: `dist/public/verdaccio-${version}.js`,
+        file: `dist/public/verdaccio.js`,
         format: "umd",
-        name: `verdaccio-${version}`,
+        name: `verdaccio`,
       },
-    }),
-  )
+    });
+
 
   const serverBundle = () =>
     createBundle({
@@ -81,7 +81,7 @@ async function build() {
   // FIXME:
   // Do this synchronously until this PR is merged and we can use `forwardEnv`.
   // https://github.com/babel/babel/pull/9161
-  for (const bundle of [...clientBundles, serverBundle, cliBundle]) {
+  for (const bundle of [clientBundle, serverBundle, cliBundle]) {
     await bundle()
   }
 }

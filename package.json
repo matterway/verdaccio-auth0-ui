@@ -1,6 +1,6 @@
 {
   "name": "verdaccio-auth0-ui",
-  "version": "2.2.10",
+  "version": "3.0.0",
   "keywords": [
     "github",
     "login",
@@ -15,7 +15,6 @@
   "bugs": "https://github.com/matterway/verdaccio-auth0-ui/issues",
   "repository": "github:matterway/verdaccio-auth0-ui",
   "license": "MIT",
-  "author": "Abraham Schilling",
   "files": [
     "dist"
   ],
@@ -77,15 +76,15 @@
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.7.5",
-    "verdaccio": "^4.4.2",
+    "verdaccio": "^5.15.4",
     "verdaccio-htpasswd": "^9.3.0"
   },
   "peerDependencies": {
     "lodash": "4",
-    "verdaccio": "3 || 4"
+    "verdaccio": ">=5"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

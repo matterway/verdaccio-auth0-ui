@@ -4,3 +4,4 @@ dist/
 htpasswd
 node_modules/
 storage/
+.history

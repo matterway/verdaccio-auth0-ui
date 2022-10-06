@@ -4,7 +4,7 @@ exports[`Shared buildStatusPage matches the snapshot 1`] = `
 "<!DOCTYPE html>
 <html>
   <head>
-    <title>github-oauth-ui</title>
+    <title>auth0-ui</title>
     <style>
       html,
       body {

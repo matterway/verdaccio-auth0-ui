@@ -58,7 +58,7 @@ packages:
 
 # log settings
 logs:
-  - { type: stdout, format: pretty, level: http }
+  - { type: stdout, format: json, level: http }
   #- {type: file, path: verdaccio.log, level: info}
 
 url_prefix: ""
