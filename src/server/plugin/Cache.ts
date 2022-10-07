@@ -20,7 +20,7 @@ export class Cache {
 
   constructor(
     private readonly authProvider: AuthProvider,
-    private readonly cacheTTLms = 1000, // 1s
+    private readonly cacheTTLms = 5000, // 5s
   ) { }
 
   async getGroups(token: string): Promise<string[]> {
