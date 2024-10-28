@@ -67,7 +67,7 @@
     "lodash": "4.17.21",
     "nodemon": "^2.0.2",
     "release-it": "^17.10.0",
-    "rollup": "2.79.1",
+    "rollup": "2.79.2",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-json": "^4.0.0",
@@ -80,12 +80,8 @@
     "verdaccio-htpasswd": "^9.3.0"
   },
   "peerDependencies": {
-    "braces": ">=3.0.3",
-    "cookie": ">=0.7.0",
     "lodash": ">=4",
-    "verdaccio": ">=5",
-    "rollup": ">=2.79.2",
-    "semver": ">=5.7.2"
+    "verdaccio": ">=5"
   },
   "resolutions": {
     "rollup": "^2.79.2",
