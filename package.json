@@ -85,7 +85,7 @@
     "lodash": "4",
     "verdaccio": ">=5",
     "rollup": ">=2.79.2",
-    "semver": "5.7.2",
+    "semver": "5.7.2"
   },
   "resolutions": {
     "rollup": "2.79.2",
