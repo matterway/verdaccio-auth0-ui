@@ -88,10 +88,10 @@
     "semver": "5.7.2"
   },
   "resolutions": {
-    "rollup": "2.79.2",
-    "braces": "3.0.3",
-    "semver": "5.7.2",
-    "cookie": "0.7.0"
+    "rollup": "^2.79.2",
+    "braces": "^3.0.3",
+    "semver": "^5.7.2",
+    "cookie": "^0.7.0"
   },
   "engines": {
     "node": ">=16"
