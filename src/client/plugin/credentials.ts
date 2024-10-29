@@ -1,37 +1,30 @@
 //
-// After a successful login we are redirected to the UI with our username
-// and a JWT token. We need to save these in local storage so Verdaccio
-// thinks we are logged in.
+// After a successful login, we are redirected to the UI with our username
+// and JWT tokens. Instead of local storage, use an in-memory cache for storing
+// sensitive data.
 //
 
 export interface Credentials {
-  username: string
-  uiToken: string
-  npmToken: string
+  username: string;
+  uiToken: string;
+  npmToken: string;
 }
 
+// In-memory cache to store credentials temporarily during the session
+let credentialsCache: Credentials | null = null;
+
 export function saveCredentials(credentials: Credentials) {
-  localStorage.setItem("username", credentials.username)
-  localStorage.setItem("token", credentials.uiToken)
-  localStorage.setItem("npm", credentials.npmToken)
+  credentialsCache = credentials;
 }
 
 export function clearCredentials() {
-  localStorage.removeItem("username")
-  localStorage.removeItem("token")
-  localStorage.removeItem("npm")
+  credentialsCache = null;
 }
 
-export function isLoggedIn() {
-  return true
-    && !!localStorage.getItem("username")
-    && !!localStorage.getItem("token")
-    && !!localStorage.getItem("npm")
+export function isLoggedIn(): boolean {
+  return !!credentialsCache?.username && !!credentialsCache?.uiToken && !!credentialsCache?.npmToken;
 }
 
-export function validateCredentials(credentials: Credentials) {
-  return true
-    && credentials.username
-    && credentials.uiToken
-    && credentials.npmToken
+export function validateCredentials(credentials: Partial<Credentials>): credentials is Credentials {
+  return !!credentials.username && !!credentials.uiToken && !!credentials.npmToken;
 }
