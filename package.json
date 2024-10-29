@@ -87,7 +87,8 @@
     "rollup": "^2.79.2",
     "braces": "^3.0.3",
     "semver": "^5.7.2",
-    "cookie": ">=0.7.0"
+    "cookie": ">=0.7.0",
+    "async": ">=3.2.6"
   },
   "engines": {
     "node": ">=16"
